@@ -1,0 +1,274 @@
+/* Remove margens padrão que o navegador coloca automaticamente */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Faz o tamanho dos elementos ficar mais fácil de controlar */
+}
+
+/* Define a fonte padrão do sistema */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* Fonte limpa e profissional */
+
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    /* Fundo com degradê azul moderno */
+
+    min-height: 100vh;
+    /* Garante que o fundo ocupe a tela inteira */
+
+    display: flex;
+    /* Ativa o modo flexbox */
+
+    justify-content: center;
+    /* Centraliza horizontalmente */
+
+    align-items: center;
+    /* Centraliza verticalmente */
+}
+
+/* ============================= */
+/* CAIXA LOGIN E CADASTRO */
+/* ============================= */
+
+.container-login {
+    background: white;
+    /* Fundo branco da caixa */
+
+    padding: 40px;
+    /* Espaço interno */
+
+    border-radius: 12px;
+    /* Bordas arredondadas */
+
+    width: 100%;
+    max-width: 400px;
+    /* Limita largura */
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    /* Sombra moderna */
+}
+
+/* Títulos */
+.container-login h2 {
+    text-align: center;
+    /* Centraliza texto */
+
+    margin-bottom: 20px;
+    /* Espaço abaixo */
+
+    color: #1e3c72;
+    /* Cor azul forte */
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    /* Deixa texto mais forte */
+
+    display: block;
+    /* Cada label ocupa linha inteira */
+
+    margin-top: 15px;
+    /* Espaço acima */
+}
+
+/* Campos de input e select */
+input,
+select {
+
+    width: 100%;
+    /* Ocupa largura total */
+
+    padding: 10px;
+    /* Espaço interno */
+
+    margin-top: 5px;
+    /* Espaço entre label e campo */
+
+    border-radius: 6px;
+    /* Bordas arredondadas */
+
+    border: 1px solid #ccc;
+    /* Borda cinza clara */
+
+    outline: none;
+    /* Remove borda azul padrão ao clicar */
+}
+
+/* Efeito quando clica no campo */
+input:focus,
+select:focus {
+    border: 1px solid #2a5298;
+    /* Muda cor da borda */
+
+    box-shadow: 0 0 5px rgba(42, 82, 152, 0.5);
+    /* Pequeno brilho azul */
+
+}
+
+/* Botões */
+button {
+    width: 100%;
+    /* Ocupa largura total */
+
+    padding: 12px;
+    /* Espaço interno */
+
+    margin-top: 20px;
+    /* Espaço acima */
+
+    border: none;
+    /* Remove borda padrão */
+
+    border-radius: 8px;
+    /* Bordas arredondadas */
+
+    background: #1e3c72;
+    /* Azul principal */
+
+    color: white;
+    /* Texto branco */
+
+    font-size: 16px;
+
+    /* Tamanho do texto */
+
+    font-weight: bold;
+    /* Texto forte */
+
+    cursor: pointer;
+    /* Mostra mãozinha ao passar mouse */
+
+    transition: 0.3s;
+    /* Animação suave */
+}
+
+/* Efeito ao passar o mouse */
+button:hover {
+    background: #2a5298;
+    /* Azul mais claro */
+}
+
+/* Links */
+a {
+    color: #1e3c72;
+    /* Azul */
+
+    text-decoration: none;
+    /* Remove sublinhado */
+}
+
+/* Quando passa o mouse no link */
+a:hover {
+    text-decoration: underline;
+    /* Coloca sublinhado */
+}
+
+/* Mensagens de erro ou aviso */
+#mensagemErro,
+#mensagemCadastro,
+#mensagemReserva {
+    margin-top: 15px;
+    /* Espaço acima */
+
+    font-weight: bold;
+    /* Texto forte */
+
+    text-align: center;
+    /* Centraliza */
+}
+
+/* ============================= */
+/* HEADER DO DASHBOARD */
+/* ============================= */
+
+header {
+
+    width: 100%;
+    /* Ocupa largura total */
+
+    background: #1e3c72;
+    /* Azul escuro */
+
+    color: white;
+    /* Texto branco */
+
+    padding: 20px;
+    /* Espaço interno */
+
+    position: fixed;
+    /* Fica fixo no topo */
+
+    top: 0;
+    /* Cola no topo */
+
+    left: 0;
+}
+
+/* Título do sistema */
+header h1 {
+    text-align: center;
+}
+
+/* Menu */
+nav {
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Links do menu */
+nav a {
+    color: white;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+/* Área principal do dashboard */
+.conteudo {
+    margin-top: 150px;
+    /* Espaço para não ficar atrás do header */
+
+    text-align: center;
+    color: white;
+}
+
+/* ===== Mensagens ===== */
+
+.mensagem-sucesso {
+    color: #155724;
+    background-color: #d4edda;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.mensagem-erro {
+    color: #721c24;
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ============================= */
+/* RESPONSIVIDADE */
+/* ============================= */
+
+/* Se for celular */
+@media (max-width: 600px) {
+
+    .container-login {
+        padding: 25px;
+        /* Diminui espaço interno */
+    }
+
+    header {
+        padding: 15px;
+    }
+
+}
