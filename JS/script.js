@@ -39,6 +39,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ==============================
+    // DROPDOWN DO NAV
+    // ==============================
+
+    const dropdowns = Array.from(document.querySelectorAll('.dropdown'));
+
+    if (dropdowns.length) {
+        dropdowns.forEach(dd => {
+            const btn = dd.querySelector('.dropbtn');
+            const content = dd.querySelector('.dropdown-content');
+            if (!btn || !content) return;
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', String(!expanded));
+                content.classList.toggle('show');
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            dropdowns.forEach(dd => {
+                if (!dd.contains(e.target)) {
+                    const btn = dd.querySelector('.dropbtn');
+                    const content = dd.querySelector('.dropdown-content');
+                    if (content && content.classList.contains('show')) content.classList.remove('show');
+                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    }
+
+    // ==============================
     // PARTE DA RESERVA
     // ==============================
 

@@ -224,6 +224,70 @@ nav a {
     font-weight: bold;
 }
 
+/* Dropdown do nav */
+.nav-list {
+    list-style: none;
+    display: inline-flex;
+    gap: 0;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+.nav-list li {
+    position: relative;
+}
+.dropbtn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 15px;
+    padding: 0;
+    font-size: 1rem;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: white;
+    min-width: 160px;
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 6px 0;
+}
+.dropdown-content li {
+    list-style: none;
+}
+.dropdown-content a {
+    color: #1e3c72;
+    display: block;
+    padding: 8px 12px;
+}
+.dropdown-content a:hover {
+    background: #f1f1f1;
+}
+.dropdown-content.show {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .nav-list {
+        display: block;
+        text-align: left;
+        padding-left: 10px;
+    }
+    .nav-list li {
+        margin: 8px 0;
+    }
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+    }
+}
+
 /* Área principal do dashboard */
 .conteudo {
     margin-top: 150px;
