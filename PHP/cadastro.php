@@ -43,7 +43,7 @@
         <p id="mensagemCadastro"></p>
         <!-- Aqui vai aparecer mensagem de erro ou sucesso -->
 
-        <p>Já tem conta? <a href="index.html">Fazer Login</a></p>
+        <p>Já tem conta? <a href="index.php">Fazer Login</a></p>
         <!-- Link para voltar ao login -->
 
     </div>

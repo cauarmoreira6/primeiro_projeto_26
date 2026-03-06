@@ -39,7 +39,7 @@
 
         <p id="mensagemReserva"></p>
 
-        <p><a href="dashboard.html">Voltar ao Dashboard</a></p>
+        <p><a href="dashboard.php">Voltar ao Dashboard</a></p>
 
     </div>
 

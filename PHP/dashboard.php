@@ -15,8 +15,8 @@
 
         <nav>
             <ul class="nav-list">
-                <li><a href="dashboard.html">Início</a></li>
-                <li><a href="reservar.html">Reservar Sala</a></li>
+                <li><a href="dashboard.php">Início</a></li>
+                <li><a href="reservar.php">Reservar Sala</a></li>
                 <li class="dropdown">
                     <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Minhas Reservas ▾</button>
                     <ul class="dropdown-content" aria-label="submenu">
@@ -24,7 +24,7 @@
                         <li><a href="#">Cancelar Reserva</a></li>
                     </ul>
                 </li>
-                <li><a href="index.html">Sair</a></li>
+                <li><a href="index.php">Sair</a></li>
             </ul>
         </nav>
 

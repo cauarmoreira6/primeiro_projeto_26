@@ -11,7 +11,9 @@
 <body>
     <div class="container-login"> 
 
-        <h2>Login do Sistema</h2> 
+        <h2>Login do Sistema</h2>
+
+        <img src="../imagens/img_logo.png">
 
         <form id="formLogin"> 
 
@@ -24,7 +26,7 @@
             <button type="submit">Entrar</button>
 
             <br><br>
-            <p>Não tem conta? <a href="cadastro.html">Criar conta</a></p>
+            <p>Não tem conta? <a href="cadastro.php">Criar conta</a></p>
         </form>
 
         <p id="mensagemErro"></p>
