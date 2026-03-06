@@ -5,10 +5,10 @@ $usuario = "root";
 $senha = "";
 $banco = "sistema_reservas";
 
-$conn = mysqli_connect($servidor, $usuario, $senha, $banco);
+$conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 
-if (!$conn) {
-    die("Erro na conexão: " . mysqli_connect_error());
+if(!$conexao){
+    die("Erro na conexão com o banco de dados");
 }
 
 ?>

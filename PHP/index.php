@@ -1,3 +1,7 @@
+<?php
+include("conexao.php");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,7 +17,7 @@
 
         <h2>Login do Sistema</h2>
 
-        <img src="../imagens/img_logo.png">
+        <!-- <img src="../imagens/img_logo.png" class="imagen"> -->
 
         <form id="formLogin"> 
 

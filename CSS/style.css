@@ -336,3 +336,9 @@ nav a {
     }
 
 }
+
+#imagen {
+    width: 100px;
+    height: 50px;
+    padding: 0;
+}
