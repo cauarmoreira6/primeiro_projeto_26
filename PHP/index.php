@@ -14,6 +14,7 @@ include("conexao.php");
 
 <body>
     <div class="container-login"> 
+        <form action="verificar_login.php" method="POST">
 
         <h2>Login do Sistema</h2>
 

@@ -17,7 +17,8 @@ include("conexao.php");
 
         <h2>Criar Nova Conta</h2>
 
-        <form id="formCadastro"> 
+        <form id="formCadastro">
+            <form action="salvar_usuario.php" method="POST">
 
             <label>Nome</label> 
             <input type="text" id="nome" placeholder="Digite seu nome" required>
