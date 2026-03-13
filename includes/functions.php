@@ -27,7 +27,8 @@ function checkUserLimit($usuario_id) {
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM reservas WHERE usuario_id = ? AND data_inicio >= DATE_SUB(NOW(), INTERVAL 7 DAY)");
     $stmt->execute([$usuario_id]);
     $count = $stmt->fetchColumn();
-    $stmt2 = $pdo->prepare("SELECT limite_reservas FROM usuarios WHERE id = ?");
+    // A tabela usuarios usa a coluna "idusuarios" como chave primária
+    $stmt2 = $pdo->prepare("SELECT limite_reservas FROM usuarios WHERE idusuarios = ?");
     $stmt2->execute([$usuario_id]);
     $limite = $stmt2->fetchColumn();
     return $count >= $limite;

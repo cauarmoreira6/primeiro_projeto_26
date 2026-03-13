@@ -8,7 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = sanitize($_POST['email']);
     $senha = $_POST['senha'];
 
-    $stmt = $pdo->prepare("SELECT id, nome, tipo, senha FROM usuarios WHERE email = ?");
+    // A tabela usuarios usa a coluna "idusuarios" como chave primária
+    $stmt = $pdo->prepare("SELECT idusuarios AS id, nome, tipo, senha FROM usuarios WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 

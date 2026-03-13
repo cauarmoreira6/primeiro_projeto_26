@@ -4,7 +4,7 @@
 $host = 'localhost';
 $dbname = 'sistema_reservas';
 $username = 'root'; // Usuário padrão do XAMPP
-$password = ''; // Senha vazia por padrão no XAMPP
+$password = 'mysql'; // Senha vazia por padrão no XAMPP
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
