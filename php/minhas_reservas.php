@@ -9,7 +9,7 @@ if (!isLoggedIn()) {
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT r.*, s.nome AS sala_nome FROM reservas r JOIN salas s ON r.sala_id = s.id WHERE r.usuario_id = ? ORDER BY r.data_inicio DESC");
+$stmt = $pdo->prepare("SELECT r.*, s.nome AS sala_nome FROM reservas r JOIN salas s ON r.sala_id = s.idsala WHERE r.usuario_id = ? ORDER BY r.data_inicio DESC");
 $stmt->execute([$_SESSION['user_id']]);
 $reservas = $stmt->fetchAll();
 ?>

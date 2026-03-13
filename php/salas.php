@@ -23,11 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nome = sanitize($_POST['nome']);
         $capacidade = (int)$_POST['capacidade'];
         $descricao = sanitize($_POST['descricao']);
-        $stmt = $pdo->prepare("UPDATE salas SET nome = ?, capacidade = ?, descricao = ? WHERE id = ?");
+        $stmt = $pdo->prepare("UPDATE salas SET nome = ?, capacidade = ?, descricao = ? WHERE idsala = ?");
         $stmt->execute([$nome, $capacidade, $descricao, $id]);
     } elseif (isset($_POST['delete'])) {
         $id = (int)$_POST['id'];
-        $stmt = $pdo->prepare("DELETE FROM salas WHERE id = ?");
+        $stmt = $pdo->prepare("DELETE FROM salas WHERE idsala = ?");
         $stmt->execute([$id]);
     }
     header('Location: salas.php');
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <td><?php echo $sala['descricao']; ?></td>
                         <td>
                             <form method="post" style="display:inline;">
-                                <input type="hidden" name="id" value="<?php echo $sala['id']; ?>">
+                                <input type="hidden" name="id" value="<?php echo $sala['idsala']; ?>">
                                 <input type="text" name="nome" value="<?php echo $sala['nome']; ?>" required>
                                 <input type="number" name="capacidade" value="<?php echo $sala['capacidade']; ?>" required>
                                 <textarea name="descricao"><?php echo $sala['descricao']; ?></textarea>

@@ -10,7 +10,7 @@ if (!isLoggedIn()) {
 }
 
 // Buscar reservas aprovadas
-$reservas = $pdo->query("SELECT r.*, s.nome AS sala_nome, u.nome AS usuario_nome FROM reservas r JOIN salas s ON r.sala_id = s.id JOIN usuarios u ON r.usuario_id = u.id WHERE r.status = 'aprovado' ORDER BY r.data_inicio")->fetchAll();
+$reservas = $pdo->query("SELECT r.*, s.nome AS sala_nome, u.nome AS usuario_nome FROM reservas r JOIN salas s ON r.sala_id = s.idsala JOIN usuarios u ON r.usuario_id = u.idusuarios WHERE r.status = 'aprovado' ORDER BY r.data_inicio")->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +19,8 @@ $reservas = $pdo->query("SELECT r.*, s.nome AS sala_nome, u.nome AS usuario_nome
     <meta charset="UTF-8">
     <title>Calendário - Sistema de Reservas</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
 </head>
 <body>
     <nav>

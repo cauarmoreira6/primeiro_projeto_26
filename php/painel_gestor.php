@@ -14,13 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['acao'])) {
     $reserva_id = (int)$_POST['reserva_id'];
     $acao = $_POST['acao'];
     $status = $acao == 'aprovar' ? 'aprovado' : 'rejeitado';
-    $stmt = $pdo->prepare("UPDATE reservas SET status = ? WHERE id = ?");
+    $stmt = $pdo->prepare("UPDATE reservas SET status = ? WHERE idreserva = ?");
     $stmt->execute([$status, $reserva_id]);
     header('Location: painel_gestor.php');
     exit;
 }
 
-$reservas_pendentes = $pdo->query("SELECT r.*, s.nome AS sala_nome, u.nome AS usuario_nome FROM reservas r JOIN salas s ON r.sala_id = s.id JOIN usuarios u ON r.usuario_id = u.id WHERE r.status = 'pendente' ORDER BY r.data_inicio")->fetchAll();
+$reservas_pendentes = $pdo->query("SELECT r.*, s.nome AS sala_nome, u.nome AS usuario_nome FROM reservas r JOIN salas s ON r.sala_id = s.idsala JOIN usuarios u ON r.usuario_id = u.idusuarios WHERE r.status = 'pendente' ORDER BY r.data_inicio")->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +61,7 @@ $reservas_pendentes = $pdo->query("SELECT r.*, s.nome AS sala_nome, u.nome AS us
                         <td><?php echo $reserva['data_fim']; ?></td>
                         <td>
                             <form method="post" style="display:inline;">
-                                <input type="hidden" name="reserva_id" value="<?php echo $reserva['id']; ?>">
+                                <input type="hidden" name="reserva_id" value="<?php echo $reserva['idreserva']; ?>">
                                 <button type="submit" name="acao" value="aprovar">Aprovar</button>
                                 <button type="submit" name="acao" value="rejeitar">Rejeitar</button>
                             </form>

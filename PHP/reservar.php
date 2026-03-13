@@ -16,7 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data_inicio = $_POST['data_inicio'];
     $data_fim = $_POST['data_fim'];
 
-    if (checkConflict($sala_id, $data_inicio, $data_fim)) {
+    $now = new DateTime();
+    $dt_inicio = new DateTime($data_inicio);
+    $dt_fim = new DateTime($data_fim);
+
+    if ($dt_inicio < $now) {
+        $error = "Data e hora de início não podem ser no passado.";
+    } elseif ($dt_fim <= $dt_inicio) {
+        $error = "Data e hora de fim devem ser posteriores ao início.";
+    } elseif (checkConflict($sala_id, $data_inicio, $data_fim)) {
         $error = "Conflito de horário detectado.";
     } elseif (checkUserLimit($_SESSION['user_id'])) {
         $error = "Limite de reservas atingido.";
@@ -51,13 +59,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <select name="sala_id" required>
                 <option value="">Selecione uma sala</option>
                 <?php foreach ($salas as $sala): ?>
-                    <option value="<?php echo $sala['id']; ?>"><?php echo $sala['nome']; ?> (Capacidade: <?php echo $sala['capacidade']; ?>)</option>
+                    <option value="<?php echo $sala['idsala']; ?>"><?php echo $sala['nome']; ?> (Capacidade: <?php echo $sala['capacidade']; ?>)</option>
                 <?php endforeach; ?>
             </select>
-            <input type="datetime-local" name="data_inicio" required>
-            <input type="datetime-local" name="data_fim" required>
+            <input type="datetime-local" name="data_inicio" id="data_inicio" required min="<?php echo date('Y-m-d\TH:i'); ?>">
+            <input type="datetime-local" name="data_fim" id="data_fim" required>
             <button type="submit">Reservar</button>
         </form>
     </div>
+    <script>
+        const form = document.querySelector('form');
+        const dataInicio = document.getElementById('data_inicio');
+        const dataFim = document.getElementById('data_fim');
+
+        dataInicio.addEventListener('change', function() {
+            dataFim.min = this.value;
+            validarDatas();
+        });
+
+        dataFim.addEventListener('change', validarDatas);
+
+        function validarDatas() {
+            const inicio = new Date(dataInicio.value);
+            const fim = new Date(dataFim.value);
+            if (dataInicio.value && dataFim.value && fim <= inicio) {
+                dataFim.setCustomValidity('coloque uma mensagem aqui..');
+            } else {
+                dataFim.setCustomValidity('');
+            }
+        }
+
+        form.addEventListener('submit', function(e) {
+            validarDatas();
+            if (!form.checkValidity()) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
